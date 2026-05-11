@@ -88,7 +88,7 @@ const Hero = () => {
             </div>
 
             <div className="flex gap-4 justify-center md:justify-start pt-4">
-              <button className="bg-black text-white px-6 py-2.5 rounded-full font-semibold hover:bg-gray-800">
+              <button className="bg-black active:scale-95 transition-all text-white px-6 py-2.5 rounded-full font-semibold hover:bg-gray-800">
                 Let's Talk
               </button>
               <button className="flex items-center gap-2 text-black border-b-2 border-black/70 font-semibold hover:text-gray-600">

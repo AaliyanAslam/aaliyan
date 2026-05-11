@@ -24,13 +24,14 @@ const Hero = () => {
   }, []);
   return (
     <>
-      <div
-        className="min-h-220 min-w-420 mx-auto bg-cover bg-center flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 px-4 md:px-10 py-4 md:py-0"
-        style={{
-          backgroundImage: "url('/images/bg1.webp')",
-        }}
-      >
-        <div className="flex-1 text-center md:text-left space-y-4">
+      <div className="relative min-h-220 min-w-420 mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 px-4 md:px-10 py-4 md:py-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center animate-pulse"
+          style={{
+            backgroundImage: "url('/images/bg1.webp')",
+          }}
+        ></div>
+        <div className="relative flex-1 text-center md:text-left space-y-4">
           <div className="flex items-center gap-2 justify-center md:justify-start">
             <span className="text-3xl">👋</span>
           </div>
@@ -101,7 +102,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col items-center md:items-end justify-end gap-4">
+        <div className="relative flex-1 flex flex-col items-center md:items-end justify-end gap-4">
           <div className="relative">
             <img
               src="/images/aaliyan.webp"

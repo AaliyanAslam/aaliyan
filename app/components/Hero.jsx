@@ -27,7 +27,7 @@ const Hero = () => {
       <div
         className="min-h-220 min-w-420 mx-auto bg-cover bg-center flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 px-4 md:px-10 py-4 md:py-0"
         style={{
-          backgroundImage: "url('/images/bg.png')",
+          backgroundImage: "url('/images/bg1.webp')",
         }}
       >
         <div className="flex-1 text-center md:text-left space-y-4">
@@ -104,12 +104,12 @@ const Hero = () => {
         <div className="flex-1 flex flex-col items-center md:items-end justify-end gap-4">
           <div className="relative">
             <img
-              src="/images/my.png"
+              src="/images/aaliyan.webp"
               alt="Hero"
               className="w-md h-100 md:w-148 md:h-160 lg:w-184 lg:h-190 object-cover rounded-lg lg:rounded-none"
             />
             <img
-              src="/images/strip.png"
+              src="/images/strip.webp"
               alt="Strip decoration"
               className="hidden md:block absolute bottom-80 right-10 h-16 md:h-30 lg:h-34 object-contain"
             />
@@ -121,7 +121,7 @@ const Hero = () => {
           className={`relative overflow-hidden bg-linear-to-r from-gray-800 to-gray-900  ${inter.className} font-semibold`}
         >
           <img
-            src="/images/carosimg.png"
+            src="/images/caros.webp"
             alt="Carousel"
             className="w-full h-16 object-cover opacity-60"
           />

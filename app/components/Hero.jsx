@@ -1,5 +1,5 @@
 import React from "react";
-import { MdCheckCircle } from "react-icons/md";
+import { FaArrowDown } from "react-icons/fa6";
 import { inter, novaOval, urbanist } from "../fonts";
 import { SiGooglegemini } from "react-icons/si";
 import { FaCheck } from "react-icons/fa6";
@@ -71,8 +71,11 @@ const Hero = () => {
             <button className="bg-black text-white px-6 py-2.5 rounded-full font-semibold hover:bg-gray-800">
               Let's Talk
             </button>
-            <button className="text-black border-b-2 border-black font-semibold hover:text-gray-600">
-              Download CV ↓
+            <button className="flex items-center gap-2 text-black border-b-2 border-black/70 font-semibold hover:text-gray-600">
+              Download CV{" "}
+              <span>
+                <FaArrowDown />
+              </span>
             </button>
           </div>
         </div>

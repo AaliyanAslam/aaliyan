@@ -1,9 +1,12 @@
 import About from "./components/About";
 import CaseStudy from "./components/CaseStudy";
+import Contact from "./components/Contact";
 import ContactStrip from "./components/ContactStrip";
 import Experience from "./components/Exprience";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
+import Stats from "./components/Stats";
+import Testimonial from "./components/testimonials";
 
 export default function Home() {
   return (
@@ -16,6 +19,11 @@ export default function Home() {
       <About />
       <Experience />
       <CaseStudy />
+      <Testimonial />
+      <Stats />
+      <div className="mt-32">
+        <Contact />
+      </div>
     </>
   );
 }

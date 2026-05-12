@@ -1,5 +1,6 @@
 import "./globals.css";
-
+import "lenis/dist/lenis.css";
+import SmoothScroll from "./components/SmoothScroll";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,11 +10,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-    suppressHydrationWarning={true}
+      suppressHydrationWarning={true}
       lang="en"
       className="h-full antialiased"
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

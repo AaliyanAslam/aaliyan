@@ -23,8 +23,8 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <>
-      <div className="select-none relative lg:min-h-220 lg:min-w-420 mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 px-4 md:px-10 py-4 md:py-0">
+    <div className="select-none relative">
+      <div className="relative lg:min-h-220 lg:max-w-420 mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 px-4 md:px-10 py-4 md:py-0">
         <div
           className="absolute inset-0 bg-cover bg-center animate-pulse"
           style={{
@@ -118,7 +118,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="select-none absolute bottom-0 left-0 right-0 hidden md:block w-full">
+      <div className="select-none absolute -bottom-2 left-0 right-0 hidden md:block w-full">
         <div
           className={`max-w-420 mx-auto relative  overflow-hidden bg-linear-to-r from-gray-800 to-gray-900 ${inter.className} font-semibold`}
         >
@@ -164,7 +164,7 @@ const Hero = () => {
           }
         `}</style>
       </div>
-    </>
+    </div>
   );
 };
 

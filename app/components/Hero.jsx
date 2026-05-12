@@ -24,7 +24,7 @@ const Hero = () => {
   }, []);
   return (
     <>
-      <div className="select-none relative min-h-220 min-w-420 mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 px-4 md:px-10 py-4 md:py-0">
+      <div className="select-none relative lg:min-h-220 lg:min-w-420 mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 px-4 md:px-10 py-4 md:py-0">
         <div
           className="absolute inset-0 bg-cover bg-center animate-pulse"
           style={{
@@ -117,16 +117,27 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
       <div className="select-none absolute bottom-0 left-0 right-0 hidden md:block w-full">
         <div
-          className={`relative overflow-hidden bg-linear-to-r from-gray-800 to-gray-900  ${inter.className} font-semibold`}
+          className={`max-w-420 mx-auto relative  overflow-hidden bg-linear-to-r from-gray-800 to-gray-900 ${inter.className} font-semibold`}
         >
           <img
             src="/images/caros.webp"
             alt="Carousel"
             className="w-full h-16 object-cover opacity-60"
           />
-          <div className="absolute inset-0 flex items-center  overflow-hidden">
+
+          {/* Masking Layer added here for smooth edges */}
+          <div
+            className="absolute inset-0 flex items-center overflow-hidden"
+            style={{
+              maskImage:
+                "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+            }}
+          >
             <div className="flex animate-marquee gap-8 whitespace-nowrap">
               {[...services, ...services].map((service, index) => (
                 <div key={index} className="shrink-0">
@@ -138,6 +149,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
+
         <style jsx>{`
           @keyframes marquee {
             0% {

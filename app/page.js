@@ -1,4 +1,5 @@
 import About from "./components/About";
+import CaseStudy from "./components/CaseStudy";
 import ContactStrip from "./components/ContactStrip";
 import Experience from "./components/Exprience";
 import Hero from "./components/Hero";
@@ -13,7 +14,8 @@ export default function Home() {
         <ContactStrip />
       </div>
       <About />
-      <Experience/>
+      <Experience />
+      <CaseStudy />
     </>
   );
 }

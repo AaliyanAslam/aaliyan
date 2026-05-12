@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { inter , urbanist } from "../fonts";
+import { inter, urbanist } from "../fonts";
+import { submitContactForm } from "@/app/actions"; // Action import karein
 
 const MAX_WORDS = 200;
 
@@ -10,6 +11,10 @@ const Contact = () => {
   const [company, setCompany] = useState("");
   const [selectedInterest, setSelectedInterest] = useState("Mobile App");
   const [message, setMessage] = useState("");
+
+  // Feedback states
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState(null); // 'success' or 'error'
 
   const interests = [
     "Mobile App",
@@ -35,55 +40,69 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setStatus(null);
+
     const formData = {
       name,
       email,
       company,
       interest: selectedInterest,
       message,
-      wordCount,
-      submittedAt: new Date().toISOString(),
     };
-    console.log("===== CONTACT FORM DATA =====");
-    console.log(formData);
-    console.log("=============================");
+
+    const result = await submitContactForm(formData);
+
+    setIsSubmitting(false);
+    if (result.success) {
+      setStatus("success");
+      // Form clear kar dein
+      setName("");
+      setEmail("");
+      setCompany("");
+      setMessage("");
+    } else {
+      setStatus("error");
+    }
   };
 
   return (
-    <div className={`bg-white min-h-screen p-8 font-sans text-gray-900 ${inter.className}`}>
+    <div
+      className={`bg-white min-h-screen p-8 font-sans text-gray-900 ${inter.className}`}
+    >
       <div className="max-w-420 mx-auto">
-        {/* Header Section */}
         <div className="text-center mb-16 relative">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             <span className="text-gray-400">Say Hi!</span> and tell me about
             your idea
           </h1>
-          {/* Decorative Arrow (Represented by SVG or text) */}
           <div className="text-4xl mt-4">—————→</div>
           <p className="mt-8 text-lg text-gray-600">
             Have a nice works? reach out and let's chat.
           </p>
         </div>
 
-        {/* Form Section */}
         <form onSubmit={handleSubmit} className="max-w-7xl mx-auto relative">
-          {/* Decorative Dot Grid (Top Right) */}
-          <div className="absolute -right-20 top-10 hidden md:block opacity-20">
-            <div className="grid grid-cols-5 gap-2">
-              {[...Array(25)].map((_, i) => (
-                <div key={i} className="w-1 h-1 bg-black rounded-full"></div>
-              ))}
+          {/* Status Messages */}
+          {status === "success" && (
+            <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg text-center">
+              Message sent successfully! I'll get back to you soon.
             </div>
-          </div>
+          )}
+          {status === "error" && (
+            <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg text-center">
+              Something went wrong. Please try again.
+            </div>
+          )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
-            {/* Name Input */}
             <div className="border-b border-gray-300 pb-2">
               <label className="block text-base font-bold mb-4">Name:*</label>
               <input
                 type="text"
+                required
                 placeholder="Hello..."
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -91,11 +110,11 @@ const Contact = () => {
               />
             </div>
 
-            {/* Email Input */}
             <div className="border-b border-gray-300 pb-2">
               <label className="block text-base font-bold mb-4">Email.*</label>
               <input
                 type="email"
+                required
                 placeholder="Where can i reply"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -104,9 +123,10 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Company Input */}
           <div className="border-b border-gray-300 pb-2 mb-12">
-            <label className="block text-base font-bold mb-4">Company name</label>
+            <label className="block text-base font-bold mb-4">
+              Company name
+            </label>
             <input
               type="text"
               placeholder="Your company or website?"
@@ -116,7 +136,6 @@ const Contact = () => {
             />
           </div>
 
-          {/* Interests / Tags */}
           <div className="mb-12">
             <label className="block text-base font-bold mb-6">
               What's in your mind?*
@@ -139,10 +158,10 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Message Textarea */}
           <div className="border-b border-gray-300 pb-2 mb-12">
             <label className="block text-base font-bold mb-4">Message*</label>
             <textarea
+              required
               placeholder="Tell me about your project..."
               value={message}
               onChange={handleMessageChange}
@@ -151,25 +170,24 @@ const Contact = () => {
             />
             <div className="flex justify-end mt-1">
               <span
-                className={`text-sm ${
-                  wordCount >= MAX_WORDS ? "text-red-500 font-semibold" : "text-gray-400"
-                }`}
+                className={`text-sm ${wordCount >= MAX_WORDS ? "text-red-500 font-semibold" : "text-gray-400"}`}
               >
                 {wordCount}/{MAX_WORDS} words
               </span>
             </div>
           </div>
 
-          {/* Submit Button Section */}
           <div className="flex justify-end items-center gap-4 mt-16 relative">
-            {/* Decorative squiggle arrow */}
-          
-
             <button
               type="submit"
-              className="bg-black text-white px-10 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors"
+              disabled={isSubmitting}
+              className={`bg-black text-white px-10 py-4 rounded-full font-medium transition-colors ${
+                isSubmitting
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-gray-800"
+              }`}
             >
-              Send Me
+              {isSubmitting ? "Sending..." : "Send Me"}
             </button>
           </div>
         </form>
@@ -179,4 +197,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

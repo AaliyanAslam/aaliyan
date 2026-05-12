@@ -131,7 +131,7 @@ const Experience = () => {
         </div>
 
         {/* Experience List */}
-       <div className="bg-green-200">
+       <div className="bg-gray-200">
          <div className="mt-10">
           {experiences.map((exp) => (
             <ExperienceCard

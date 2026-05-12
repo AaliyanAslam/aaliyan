@@ -2,8 +2,14 @@
 import React, { useState } from "react";
 import { inter , urbanist } from "../fonts";
 
+const MAX_WORDS = 200;
+
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
   const [selectedInterest, setSelectedInterest] = useState("Mobile App");
+  const [message, setMessage] = useState("");
 
   const interests = [
     "Mobile App",
@@ -14,6 +20,36 @@ const Contact = () => {
     "Graphic design",
     "Wordpress",
   ];
+
+  const getWordCount = (text) => {
+    return text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+  };
+
+  const wordCount = getWordCount(message);
+
+  const handleMessageChange = (e) => {
+    const value = e.target.value;
+    const words = value.trim().split(/\s+/);
+    if (value.trim() === "" || words.length <= MAX_WORDS) {
+      setMessage(value);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = {
+      name,
+      email,
+      company,
+      interest: selectedInterest,
+      message,
+      wordCount,
+      submittedAt: new Date().toISOString(),
+    };
+    console.log("===== CONTACT FORM DATA =====");
+    console.log(formData);
+    console.log("=============================");
+  };
 
   return (
     <div className={`bg-white min-h-screen p-8 font-sans text-gray-900 ${inter.className}`}>
@@ -32,7 +68,7 @@ const Contact = () => {
         </div>
 
         {/* Form Section */}
-        <form className="max-w-7xl mx-auto relative">
+        <form onSubmit={handleSubmit} className="max-w-7xl mx-auto relative">
           {/* Decorative Dot Grid (Top Right) */}
           <div className="absolute -right-20 top-10 hidden md:block opacity-20">
             <div className="grid grid-cols-5 gap-2">
@@ -49,6 +85,8 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Hello..."
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full outline-none text-gray-500 placeholder-gray-300"
               />
             </div>
@@ -59,6 +97,8 @@ const Contact = () => {
               <input
                 type="email"
                 placeholder="Where can i reply"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full outline-none text-gray-500 placeholder-gray-300"
               />
             </div>
@@ -70,6 +110,8 @@ const Contact = () => {
             <input
               type="text"
               placeholder="Your company or website?"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
               className="w-full outline-none text-gray-500 placeholder-gray-300"
             />
           </div>
@@ -97,6 +139,27 @@ const Contact = () => {
             </div>
           </div>
 
+          {/* Message Textarea */}
+          <div className="border-b border-gray-300 pb-2 mb-12">
+            <label className="block text-base font-bold mb-4">Message*</label>
+            <textarea
+              placeholder="Tell me about your project..."
+              value={message}
+              onChange={handleMessageChange}
+              rows={5}
+              className="w-full outline-none text-gray-500 placeholder-gray-300 resize-none"
+            />
+            <div className="flex justify-end mt-1">
+              <span
+                className={`text-sm ${
+                  wordCount >= MAX_WORDS ? "text-red-500 font-semibold" : "text-gray-400"
+                }`}
+              >
+                {wordCount}/{MAX_WORDS} words
+              </span>
+            </div>
+          </div>
+
           {/* Submit Button Section */}
           <div className="flex justify-end items-center gap-4 mt-16 relative">
             {/* Decorative squiggle arrow */}
@@ -116,3 +179,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

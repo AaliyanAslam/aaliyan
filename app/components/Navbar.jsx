@@ -59,7 +59,7 @@ const Navbar = () => {
         stagger: 0.08,
         ease: "power2.out",
         delay: 0.15,
-      }
+      },
     );
 
     setIsOpen(true);
@@ -110,7 +110,10 @@ const Navbar = () => {
       >
         <div className="mx-auto max-w-420 backdrop-blur-md bg-white/10 rounded-full px-6 sm:px-8 py-3 border border-white/20 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="font-bold text-2xl sm:text-3xl md:text-4xl text-gray-800">
+          <Link
+            href="/"
+            className="font-bold text-2xl sm:text-3xl md:text-4xl text-gray-800"
+          >
             Aaliyan
           </Link>
 
@@ -146,7 +149,7 @@ const Navbar = () => {
             />
             <span
               className={`block h-[2.5px] w-6 bg-gray-800 rounded transition-all duration-300 origin-center ${
-                isOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
+                isOpen ? "-rotate-45 translate-y-[-7.5px]" : ""
               }`}
             />
           </button>
@@ -197,7 +200,9 @@ const Navbar = () => {
             <Link
               key={link.href}
               href={link.href}
-              ref={(el) => { linkItemsRef.current[i] = el; }}
+              ref={(el) => {
+                linkItemsRef.current[i] = el;
+              }}
               onClick={closeSidebar}
               className="text-2xl font-bold text-gray-800 hover:text-gray-400 transition-colors py-4 border-b border-gray-100 last:border-0"
             >

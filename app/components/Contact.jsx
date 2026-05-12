@@ -45,7 +45,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
             {/* Name Input */}
             <div className="border-b border-gray-300 pb-2">
-              <label className="block text-sm font-bold mb-4">Name:*</label>
+              <label className="block text-base font-bold mb-4">Name:*</label>
               <input
                 type="text"
                 placeholder="Hello..."
@@ -55,7 +55,7 @@ const Contact = () => {
 
             {/* Email Input */}
             <div className="border-b border-gray-300 pb-2">
-              <label className="block text-sm font-bold mb-4">Email.*</label>
+              <label className="block text-base font-bold mb-4">Email.*</label>
               <input
                 type="email"
                 placeholder="Where can i reply"
@@ -66,7 +66,7 @@ const Contact = () => {
 
           {/* Company Input */}
           <div className="border-b border-gray-300 pb-2 mb-12">
-            <label className="block text-sm font-bold mb-4">Company name</label>
+            <label className="block text-base font-bold mb-4">Company name</label>
             <input
               type="text"
               placeholder="Your company or website?"
@@ -76,7 +76,7 @@ const Contact = () => {
 
           {/* Interests / Tags */}
           <div className="mb-12">
-            <label className="block text-sm font-bold mb-6">
+            <label className="block text-base font-bold mb-6">
               What's in your mind?*
             </label>
             <div className="flex flex-wrap gap-3">
@@ -85,7 +85,7 @@ const Contact = () => {
                   key={item}
                   type="button"
                   onClick={() => setSelectedInterest(item)}
-                  className={`px-6 py-2 rounded-full border transition-all text-sm ${
+                  className={`px-6 py-2 rounded-full border transition-all text-base ${
                     selectedInterest === item
                       ? "bg-black text-white border-black"
                       : "bg-white text-gray-800 border-gray-200 hover:border-gray-400"

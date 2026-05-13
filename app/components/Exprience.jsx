@@ -72,7 +72,7 @@ const Experience = () => {
       company: "Self Learning",
       location: "Pakistan",
       duration: "1 Year",
-      isActive: true,
+      isActive: false,
     },
     {
       id: "02",
@@ -96,7 +96,7 @@ const Experience = () => {
       company: "Independent Work",
       location: "Remote",
       duration: "3 Months",
-      isActive: false,
+      isActive: true,
     },
   ];
 

@@ -25,7 +25,7 @@ const CaseStudy = () => {
   ];
 
   return (
-    <section
+    <section id="projects"
       className={`w-full ${inter.className} py-12 md:py-20 px-3 md:px-4 overflow-hidden`}
     >
       <div className="max-w-420 mx-auto">

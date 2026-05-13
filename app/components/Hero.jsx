@@ -89,10 +89,25 @@ const Hero = () => {
             </div>
 
             <div className="flex gap-4 justify-center md:justify-start pt-4">
-              <button className="bg-black active:scale-95 transition-all text-white px-6 py-2.5 rounded-full font-semibold hover:bg-gray-800">
+              <button
+                onClick={() => {
+                  window.location.hash = "#contact";
+                }}
+                className="bg-black active:scale-95 transition-all text-white px-6 py-2.5 rounded-full font-semibold hover:bg-gray-800"
+              >
                 Let's Talk
               </button>
-              <button className="flex items-center gap-2 text-black border-b-2 border-black/70 font-semibold hover:text-gray-600">
+              <button
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = "/resume.pdf"; 
+                  link.download = "My_CV.pdf"; 
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="flex items-center gap-2 text-black border-b-2 border-black/70 font-semibold hover:text-gray-600"
+              >
                 Download CV{" "}
                 <span>
                   <FaArrowDown />

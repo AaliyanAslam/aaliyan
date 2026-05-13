@@ -24,6 +24,7 @@ const Contact = () => {
     "App design",
     "Graphic design",
     "Wordpress",
+    "Other"
   ];
 
   const getWordCount = (text) => {
@@ -69,7 +70,7 @@ const Contact = () => {
   };
 
   return (
-    <div
+    <div id="contact"
       className={`bg-white min-h-screen p-8 font-sans text-gray-900 ${inter.className}`}
     >
       <div className="max-w-420 mx-auto">

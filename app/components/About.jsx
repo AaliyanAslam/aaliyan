@@ -4,7 +4,7 @@ import { inter, urbanist } from "../fonts";
 
 const About = () => {
   return (
-    <section
+    <section id="about"
       className={`w-full py-20 px-4 md:px-10 overflow-hidden ${inter.className}`}
     >
       <div className="max-w-420 mx-auto">

@@ -347,7 +347,7 @@ const Navbar = () => {
           {/* Desktop nav links */}
           <div className="hidden md:flex gap-6 lg:gap-8" role="menubar">
             {NAV_LINKS.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
                 scroll={false}
@@ -362,7 +362,7 @@ const Navbar = () => {
                 "
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </div>
 

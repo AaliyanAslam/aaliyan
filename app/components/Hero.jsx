@@ -24,14 +24,14 @@ const Hero = () => {
   }, []);
   return (
     <div className="select-none relative">
-      <div className="relative lg:min-h-220 lg:max-w-420 mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 px-4 md:px-10 py-4 md:py-0">
+      <div className="relative lg:min-h-220 lg:max-w-420 mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 px-4 md:px-10 py-10 md:py-20">
         <div
           className="absolute inset-0 bg-cover bg-center animate-pulse"
           style={{
             backgroundImage: "url('/images/bg1.webp')",
           }}
         ></div>
-        <div className="relative flex-1 text-center md:text-left space-y-4">
+        <div className="relative flex-1 text-center md:text-left space-y-2">
           <div className="flex items-center gap-2 justify-center md:justify-start">
             <span className="text-3xl">👋</span>
           </div>
@@ -49,18 +49,19 @@ const Hero = () => {
             <div
               className={`flex items-center gap-2 justify-center md:justify-start mb-8 ${novaOval.className}`}
             >
-              <p className="text-2xl text-gray-600">
-                ───────── FullStack Developer
+              <p className="text-[0.8rem] lg:text-[0.9rem] text-gray-900 flex">
+                <span className="hidden mr-6 lg:block">─────────</span> FullStack
+                Developer
               </p>
               <span className="text-xl">
                 <SiGooglegemini
                   size={32}
-                  className="text-yellow-500 animate-spin hover:animate-none"
+                  className="h-6 lg:h-12 text-yellow-500 animate-spin hover:animate-none"
                 />
               </span>
             </div>
 
-            <p className="text-gray-700 text-sm md:text-base max-w-lg mb-12">
+            <p className="text-gray-700 text-sm md:text-base max-w-lg mb-1 -mt-6">
               I'm a{" "}
               <span className="font-semibold text-gray-900">
                 Full Stack Web Developer & MERN Stack Developer
@@ -69,20 +70,22 @@ const Hero = () => {
               apps with React, Next.js, Node.js & Firebase.
             </p>
 
-            <div className={`space-y-2 mb-8 `}>
+            <div className={`space-y-2 mb-2 mt-3 `}>
               <div className="flex items-center gap-3">
-                <FaCheck className="text-gray-800 text-xl" />
-                <span className="text-gray-900">Product must be authentic</span>
+                <FaCheck className="text-gray-800 text-[0.7rem]" />
+                <span className="text-gray-900 text-[0.8rem]">
+                  Product must be authentic
+                </span>
               </div>
               <div className="flex items-center gap-3">
-                <FaCheck className="text-gray-800 text-xl" />
-                <span className="text-gray-900">
+                <FaCheck className="text-gray-800 text-[0.7rem]" />
+                <span className="text-gray-900 text-[0.8rem]">
                   Solve pain points elegantly
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <FaCheck className="text-gray-800 text-xl" />
-                <span className="text-gray-900">
+                <FaCheck className="text-gray-800 text-[0.7rem]" />
+                <span className="text-gray-900 text-[0.8rem]">
                   User testing, feedback, and validation
                 </span>
               </div>
@@ -100,8 +103,8 @@ const Hero = () => {
               <button
                 onClick={() => {
                   const link = document.createElement("a");
-                  link.href = "/resume.pdf"; 
-                  link.download = "My_CV.pdf"; 
+                  link.href = "/resume.pdf";
+                  link.download = "My_CV.pdf";
                   document.body.appendChild(link);
                   link.click();
                   document.body.removeChild(link);
@@ -122,12 +125,12 @@ const Hero = () => {
             <img
               src="/images/aaliyan.webp"
               alt="Hero"
-              className="w-md h-100 md:w-148 md:h-160 lg:w-184 lg:h-190 object-cover rounded-lg lg:rounded-none"
+              className="w-80 h-80 md:w-138 md:h-120 lg:w-184 lg:h-130 xl:w-160 xl:h-180 object-cover rounded-lg lg:rounded-none"
             />
             <img
               src="/images/strip.webp"
               alt="Strip decoration"
-              className="hidden md:block absolute bottom-80 right-10 h-16 md:h-30 lg:h-34 object-contain"
+              className="hidden lg:block absolute bottom-80 right-10 lg:right-0 h-16 md:h-30 lg:h-30 object-contain"
             />
           </div>
         </div>

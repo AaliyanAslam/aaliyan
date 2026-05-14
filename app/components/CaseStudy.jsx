@@ -26,30 +26,46 @@ const CaseStudy = () => {
   ];
 
   return (
-    <section id="projects"
+    <section
+      id="projects"
       className={`w-full ${inter.className} py-12 md:py-20 px-3 md:px-4 overflow-hidden`}
     >
       <div className="max-w-420 mx-auto">
         {/* Header */}
         <div className="text-center mb-10 md:mb-16">
-          {/* Top Dot */}
+        {/* Top Dot */}{" "}
+        <div className="relative top-30 left-22">
+             <Image
+              src="/images/dots.webp"
+              alt="Decorative Dots"
+              width={53}
+              height={53}
+            />
+           </div>
           <div className="flex justify-center mb-5">
-          <Image className="animate-spin" src="/images/grooms.webp" alt="Dot" width={85} height={85} />
+            {" "}
+            <Image
+              className="animate-spin"
+              src="/images/grooms.webp"
+              alt="Dot"
+              width={85}
+              height={85}
+            />
+          {" "}
           </div>
-
-          {/* Title */}
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase">
-            Case Study
+           {/* Title */}{" "}
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase flex items-center justify-center gap-3">
+           
+        <span>Case Study</span>{" "}
           </h2>
-
-          {/* Description */}
+         {/* Description */}{" "}
           <p className="max-w-xl mx-auto text-xs sm:text-sm md:text-base text-gray-600 leading-7 mt-3 md:mt-5">
-            A collection of modern web experiences, responsive interfaces, and
-            scalable applications designed with performance and user experience
-            in mind.
+             A collection of modern web experiences, responsive
+            interfaces, and scalable applications designed with
+            performance and user experience in mind.{" "}
           </p>
+      {" "}
         </div>
-
         {/* Case Studies */}
         <div className="space-y-6 md:space-y-10">
           {caseStudies.map((item, index) => (
@@ -78,7 +94,9 @@ const CaseStudy = () => {
                 </button>
 
                 {/* Title */}
-                <h3 className={`text-xl sm:text-2xl md:text-5xl font-black leading-tight mb-6 md:mb-10 ${urbanist.className}`}>
+                <h3
+                  className={`text-xl sm:text-2xl md:text-5xl font-black leading-tight mb-6 md:mb-10 ${urbanist.className}`}
+                >
                   {item.title}
                 </h3>
 

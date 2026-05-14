@@ -334,12 +334,12 @@ const Navbar = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="mx-auto max-w-420 backdrop-blur-md bg-white/10 rounded-full px-6 sm:px-8 py-3 border border-white/20 flex items-center justify-between">
+        <div className="mx-auto max-w-420 backdrop-blur-md bg-white/10 rounded-full px-6 sm:px-8 py-1 lg:py-3 border border-white/20 flex items-center justify-between">
 
           {/* Logo */}
           <Link
             href="/"
-            className="font-bold text-2xl sm:text-3xl md:text-4xl text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 rounded-md"
+            className="font-bold text-[0.9rem] text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 rounded-md"
           >
             Aaliyan
           </Link>
@@ -376,7 +376,7 @@ const Navbar = () => {
               aria-expanded={openModal}
               aria-controls={modalId}
               aria-haspopup="dialog"
-              className="text-lg min-w-32 mx-auto uppercase tracking-wide select-none"
+              className="text-xs lg:text-lg min-w-32 mx-auto uppercase tracking-wide select-none"
             >
               Hire me
             </Button>
@@ -464,7 +464,7 @@ const Navbar = () => {
             "
             style={{ zIndex: 70 }}
           >
-            <HamburgerIcon isOpen={isOpen} />
+            <HamburgerIcon isOpen={isOpen} size={0} />
           </button>
         </div>
       </nav>

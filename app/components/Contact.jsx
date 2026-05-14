@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { inter, urbanist } from "../fonts";
-import { submitContactForm } from "@/app/actions"; // Action import karein
+import { submitContactForm } from "@/app/actions";
 import Image from "next/image";
 
 const MAX_WORDS = 200;
@@ -13,9 +13,8 @@ const Contact = () => {
   const [selectedInterest, setSelectedInterest] = useState("Mobile App");
   const [message, setMessage] = useState("");
 
-  // Feedback states
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState(null); // 'success' or 'error'
+  const [status, setStatus] = useState(null);
 
   const interests = [
     "Mobile App",
@@ -47,24 +46,13 @@ const Contact = () => {
     setIsSubmitting(true);
     setStatus(null);
 
-    const formData = {
-      name,
-      email,
-      company,
-      interest: selectedInterest,
-      message,
-    };
-
+    const formData = { name, email, company, interest: selectedInterest, message };
     const result = await submitContactForm(formData);
 
     setIsSubmitting(false);
     if (result.success) {
       setStatus("success");
-      // Form clear kar dein
-      setName("");
-      setEmail("");
-      setCompany("");
-      setMessage("");
+      setName(""); setEmail(""); setCompany(""); setMessage("");
     } else {
       setStatus("error");
     }
@@ -73,30 +61,34 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className={`bg-white min-h-screen p-8 font-sans text-gray-900 ${inter.className}`}
+      className={`bg-white min-h-screen p-4 sm:p-8 font-sans text-gray-900 ${inter.className}`}
     >
-      <div className="max-w-420 mx-auto">
-     <div className="text-center mb-16 relative">
-  <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-    <span className="text-gray-400">Say Hi!</span> and tell me about
-    <br />
-    <div className="flex items-center justify-center gap-4">
-      <Image
-        src="/images/right.webp"
-        alt="Right arrow icon"
-        width={253}
-        height={53}
-        className="animate-pulse"
-      />
-      <span>your idea</span>
-    </div>
-  </h1>
-  <p className="mt-8 text-lg text-gray-600">
-    Have a nice project? reach out and let's chat.
-  </p>
-</div>
+      {/* Changed max-w-420 to a standard responsive container */}
+      <div className="max-w-7xl mx-auto py-10 md:py-20">
+        
+        {/* Header Section */}
+        <div className="text-center mb-12 md:mb-20">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
+            <span className="text-gray-400">Say Hi!</span> and tell me about
+            <br />
+            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mt-2">
+              <div className="relative w-16 h-8 md:w-32 md:h-12">
+                <Image
+                  src="/images/right.webp"
+                  alt="Right arrow icon"
+                  fill
+                  className="animate-pulse object-contain"
+                />
+              </div>
+              <span>your idea</span>
+            </div>
+          </h1>
+          <p className="mt-6 md:mt-8 text-base md:text-lg text-gray-600">
+            Have a nice project? reach out and let's chat.
+          </p>
+        </div>
 
-        <form onSubmit={handleSubmit} className="max-w-7xl mx-auto relative">
+        <form onSubmit={handleSubmit} className="w-full relative px-2 sm:px-0">
           {/* Status Messages */}
           {status === "success" && (
             <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg text-center">
@@ -109,34 +101,35 @@ const Contact = () => {
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
-            <div className="border-b border-gray-300 pb-2">
-              <label className="block text-base font-bold mb-4">Name:*</label>
+          {/* Input Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-12">
+            <div className="border-b border-gray-300 pb-2 focus-within:border-black transition-colors">
+              <label className="block text-sm md:text-base font-bold mb-3 md:mb-4">Name:*</label>
               <input
                 type="text"
                 required
                 placeholder="Hello..."
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full outline-none text-gray-500 placeholder-gray-300"
+                className="w-full outline-none text-gray-700 placeholder-gray-300 bg-transparent py-1"
               />
             </div>
 
-            <div className="border-b border-gray-300 pb-2">
-              <label className="block text-base font-bold mb-4">Email.*</label>
+            <div className="border-b border-gray-300 pb-2 focus-within:border-black transition-colors">
+              <label className="block text-sm md:text-base font-bold mb-3 md:mb-4">Email:*</label>
               <input
                 type="email"
                 required
-                placeholder="Where can i reply"
+                placeholder="Where can I reply?"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full outline-none text-gray-500 placeholder-gray-300"
+                className="w-full outline-none text-gray-700 placeholder-gray-300 bg-transparent py-1"
               />
             </div>
           </div>
 
-          <div className="border-b border-gray-300 pb-2 mb-12">
-            <label className="block text-base font-bold mb-4">
+          <div className="border-b border-gray-300 pb-2 mb-10 md:mb-12 focus-within:border-black transition-colors">
+            <label className="block text-sm md:text-base font-bold mb-3 md:mb-4">
               Company name
             </label>
             <input
@@ -144,21 +137,22 @@ const Contact = () => {
               placeholder="Your company or website?"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className="w-full outline-none text-gray-500 placeholder-gray-300"
+              className="w-full outline-none text-gray-700 placeholder-gray-300 bg-transparent py-1"
             />
           </div>
 
-          <div className="mb-12">
-            <label className="block text-base font-bold mb-6">
-              What's in your mind?*
+          {/* Interests Selection */}
+          <div className="mb-10 md:mb-12">
+            <label className="block text-sm md:text-base font-bold mb-6">
+              What's on your mind?*
             </label>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 md:gap-3">
               {interests.map((item) => (
                 <button
                   key={item}
                   type="button"
                   onClick={() => setSelectedInterest(item)}
-                  className={`px-6 py-2 rounded-full border transition-all text-base ${
+                  className={`px-4 md:px-6 py-2 rounded-full border transition-all text-sm md:text-base ${
                     selectedInterest === item
                       ? "bg-black text-white border-black"
                       : "bg-white text-gray-800 border-gray-200 hover:border-gray-400"
@@ -170,33 +164,33 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="border-b border-gray-300 pb-2 mb-12">
-            <label className="block text-base font-bold mb-4">Message*</label>
+          {/* Message Area */}
+          <div className="border-b border-gray-300 pb-2 mb-8 md:mb-12 focus-within:border-black transition-colors">
+            <label className="block text-sm md:text-base font-bold mb-3 md:mb-4">Message*</label>
             <textarea
               required
               placeholder="Tell me about your project..."
               value={message}
               onChange={handleMessageChange}
-              rows={5}
-              className="w-full outline-none text-gray-500 placeholder-gray-300 resize-none"
+              rows={4}
+              className="w-full outline-none text-gray-700 placeholder-gray-300 resize-none bg-transparent"
             />
             <div className="flex justify-end mt-1">
               <span
-                className={`text-sm ${wordCount >= MAX_WORDS ? "text-red-500 font-semibold" : "text-gray-400"}`}
+                className={`text-xs md:text-sm ${wordCount >= MAX_WORDS ? "text-red-500 font-semibold" : "text-gray-400"}`}
               >
                 {wordCount}/{MAX_WORDS} words
               </span>
             </div>
           </div>
 
-          <div className="flex justify-end items-center gap-4 mt-16 relative">
+          {/* Submit Button */}
+          <div className="flex justify-center md:justify-end items-center mt-12 md:mt-16">
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`bg-black text-white px-10 py-4 rounded-full font-medium transition-colors ${
-                isSubmitting
-                  ? "opacity-50 cursor-not-allowed"
-                  : "hover:bg-gray-800"
+              className={`w-full md:w-auto bg-black text-white px-10 py-4 rounded-full font-medium transition-all active:scale-95 ${
+                isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-800"
               }`}
             >
               {isSubmitting ? "Sending..." : "Send Me"}

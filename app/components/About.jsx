@@ -16,7 +16,7 @@ const About = () => {
               <div className="w-14 h-0.5 bg-black"></div>
 
               <span className="uppercase text-[11px] tracking-[2px] font-bold">
-                About Me ?
+                About Me
               </span>
             </div>
 
@@ -31,14 +31,14 @@ const About = () => {
           {/* Right */}
           <div className="max-w-xl">
             <p className="text-gray-700 leading-8 text-base md:text-lg">
-              I’m a passionate Full Stack Web Developer focused on creating
-              modern, responsive, and user-friendly digital experiences. I love
-              building clean interfaces, scalable applications, and smooth user
-              experiences using modern web technologies.
+              I’m a passionate Full Stack Web Developer dedicated to crafting 
+              high-performance, scalable, and visually stunning digital solutions. 
+              With a deep focus on modern architecture and seamless user experiences, 
+              I transform complex ideas into functional, responsive web applications.
             </p>
 
             <button className="mt-8 bg-black text-white px-8 py-4 rounded-full text-sm uppercase tracking-[2px] flex items-center gap-3 active:scale-95 transition duration-300">
-              Read More
+              Explore My Work
               <FaArrowRight size={12} />
             </button>
           </div>
@@ -53,11 +53,11 @@ const About = () => {
                 Experience
               </span>
 
-              <h3 className="text-5xl font-black mt-6">2+</h3>
+              <h3 className="text-5xl font-black mt-6">3+</h3>
             </div>
 
             <p className="text-sm text-gray-300 leading-7">
-              Years of learning and building modern web applications.
+              Years of professional expertise in architecting and building modern web applications.
             </p>
           </div>
 
@@ -66,11 +66,11 @@ const About = () => {
             <div>
               <span className="text-sm uppercase tracking-[2px]">Projects</span>
 
-              <h3 className="text-5xl font-black mt-6">20+</h3>
+              <h3 className="text-5xl font-black mt-6">50+</h3>
             </div>
 
             <p className="text-sm text-gray-700 leading-7">
-              Successfully completed responsive and modern projects.
+              Successfully delivered diverse projects ranging from high-converting landing pages to complex SaaS platforms.
             </p>
           </div>
 
@@ -81,15 +81,14 @@ const About = () => {
                 Technologies
               </span>
 
-              <h3 className="text-3xl font-black mt-6 leading-snug">
-                React <br />
-                Next.js <br />
-                Node.js
+              <h3 className="text-2xl font-black mt-6 leading-tight">
+                React, Next.js, <br />
+                Node & Express
               </h3>
             </div>
 
             <p className="text-sm text-gray-700 leading-7">
-              Modern tools & technologies for scalable development.
+              Proficient in Tailwind, Shadcn, Redux, Firebase, Supabase, APIs, and databases like MongoDB, MySQL, and Sequelize.
             </p>
           </div>
         </div>

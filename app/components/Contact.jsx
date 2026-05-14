@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { inter, urbanist } from "../fonts";
 import { submitContactForm } from "@/app/actions"; // Action import karein
+import Image from "next/image";
 
 const MAX_WORDS = 200;
 
@@ -24,7 +25,7 @@ const Contact = () => {
     "App design",
     "Graphic design",
     "Wordpress",
-    "Other"
+    "Other",
   ];
 
   const getWordCount = (text) => {
@@ -70,20 +71,30 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact"
+    <div
+      id="contact"
       className={`bg-white min-h-screen p-8 font-sans text-gray-900 ${inter.className}`}
     >
       <div className="max-w-420 mx-auto">
-        <div className="text-center mb-16 relative">
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            <span className="text-gray-400">Say Hi!</span> and tell me about
-            your idea
-          </h1>
-          <div className="text-4xl mt-4">—————→</div>
-          <p className="mt-8 text-lg text-gray-600">
-            Have a nice works? reach out and let's chat.
-          </p>
-        </div>
+     <div className="text-center mb-16 relative">
+  <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+    <span className="text-gray-400">Say Hi!</span> and tell me about
+    <br />
+    <div className="flex items-center justify-center gap-4">
+      <Image
+        src="/images/right.webp"
+        alt="Right arrow icon"
+        width={253}
+        height={53}
+        className="animate-pulse"
+      />
+      <span>your idea</span>
+    </div>
+  </h1>
+  <p className="mt-8 text-lg text-gray-600">
+    Have a nice project? reach out and let's chat.
+  </p>
+</div>
 
         <form onSubmit={handleSubmit} className="max-w-7xl mx-auto relative">
           {/* Status Messages */}

@@ -40,11 +40,15 @@ const Testimonial = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const nextSlide = () => setCurrent((prev) => (prev + 1) % testimonials.length);
-  const prevSlide = () => setCurrent((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  const nextSlide = () =>
+    setCurrent((prev) => (prev + 1) % testimonials.length);
+  const prevSlide = () =>
+    setCurrent((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
 
   return (
-    <section className={`w-full py-16 md:py-24 px-6 md:px-10 overflow-hidden ${inter.className}`}>
+    <section
+      className={`w-full py-16 md:py-24 px-6 md:px-10 overflow-hidden ${inter.className}`}
+    >
       <div className="max-w-420 mx-auto">
         {/* Header */}
         <div className="flex items-center gap-3 mb-12 md:mb-16 justify-center md:justify-start">
@@ -75,14 +79,21 @@ const Testimonial = () => {
                   </h2>
 
                   <div className="mt-8 md:mt-12">
-                    <h3 className="text-xl md:text-2xl font-bold">{item.name}</h3>
+                    <h3 className="text-xl md:text-2xl font-bold">
+                      {item.name}
+                    </h3>
                     <p className="text-gray-500 mt-1 text-sm md:text-base">
                       {item.role}
                     </p>
 
                     {/* Wave Graphic */}
                     <div className="mt-6 flex justify-center lg:justify-start">
-                      <svg width="120" height="16" viewBox="0 0 140 20" fill="none">
+                      <svg
+                        width="120"
+                        height="16"
+                        viewBox="0 0 140 20"
+                        fill="none"
+                      >
                         <path
                           d="M0 10C10 0 20 20 30 10C40 0 50 20 60 10C70 0 80 20 90 10C100 0 110 20 120 10C130 0 140 10 140 10"
                           stroke="black"
@@ -96,7 +107,7 @@ const Testimonial = () => {
 
                 {/* Image Shape */}
                 <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-                  <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px]">
+                  <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-100 lg:h-100">
                     <div className="absolute inset-0 bg-gray-100 [clip-path:polygon(35%_0%,65%_0%,65%_35%,100%_35%,100%_65%,65%_65%,65%_100%,35%_100%,35%_65%,0%_65%,0%_35%,35%_35%)]">
                       <img
                         src={item.image}

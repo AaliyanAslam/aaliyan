@@ -1,6 +1,7 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { inter, urbanist } from "../fonts";
+import Image from "next/image";
 
 const CaseStudy = () => {
   const caseStudies = [
@@ -33,7 +34,7 @@ const CaseStudy = () => {
         <div className="text-center mb-10 md:mb-16">
           {/* Top Dot */}
           <div className="flex justify-center mb-5">
-            <div className="w-4 h-4 rounded-full bg-black blur-[1px] shadow-[0_0_25px_rgba(0,0,0,0.9)]"></div>
+          <Image className="animate-spin" src="/images/grooms.webp" alt="Dot" width={85} height={85} />
           </div>
 
           {/* Title */}

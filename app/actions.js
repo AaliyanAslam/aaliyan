@@ -2,6 +2,11 @@
 import { createClient } from "@/app/utils/supabase/server";
 
 export async function submitContactForm(formData) {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    console.log("Supabase not configured. Mocking form submission:", formData);
+    return { success: true };
+  }
+
   const supabase = await createClient();
 
   // Data nikalna
@@ -25,6 +30,11 @@ export async function submitContactForm(formData) {
 }
 
 export async function getContactMessages(page) {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    console.log("Supabase not configured. Returning empty messages.");
+    return { success: true, data: [] };
+  }
+
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("contact_messages")

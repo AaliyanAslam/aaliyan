@@ -347,10 +347,9 @@ const Navbar = () => {
           {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-1 bg-slate-100/50 p-1 rounded-full shadow-inner border border-slate-200/50" role="menubar">
             {NAV_LINKS.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
-                scroll={false}
                 role="menuitem"
                 className="
                   px-5 py-2 rounded-full text-sm lg:text-base font-semibold text-slate-600
@@ -359,7 +358,7 @@ const Navbar = () => {
                 "
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -543,10 +542,9 @@ const Navbar = () => {
         {/* Sidebar nav links */}
         <nav className="flex flex-col gap-1 px-8 mt-2" aria-label="Mobile navigation">
           {NAV_LINKS.map((link, i) => (
-            <Link
+            <a
               key={link.href}
               href={link.href}
-              scroll={false}
               ref={(el) => { linkItemsRef.current[i] = el; }}
               onClick={handleNavLinkClick}
               className="
@@ -561,7 +559,7 @@ const Navbar = () => {
                 0{i + 1}
               </span>
               {link.label}
-            </Link>
+            </a>
           ))}
         </nav>
 

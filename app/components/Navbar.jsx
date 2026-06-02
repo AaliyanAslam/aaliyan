@@ -334,138 +334,138 @@ const Navbar = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="mx-auto max-w-420 backdrop-blur-md bg-white/10 rounded-full px-6 sm:px-8 py-1 lg:py-3 border border-white/20 flex items-center justify-between">
+        <div className="mx-auto max-w-420 backdrop-blur-xl bg-white/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 border border-white/60 flex items-center justify-between ring-1 ring-slate-900/5 transition-all duration-300">
 
           {/* Logo */}
           <Link
             href="/"
-            className="font-bold text-[0.9rem] text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 rounded-md"
+            className="font-extrabold text-[1rem] sm:text-lg text-slate-800 tracking-tight hover:text-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 rounded-md"
           >
-            Aaliyan
+            Aaliyan<span className="text-blue-500">.</span>
           </Link>
 
           {/* Desktop nav links */}
-          <div className="hidden md:flex gap-6 lg:gap-8" role="menubar">
+          <div className="hidden md:flex items-center gap-1 bg-slate-100/50 p-1 rounded-full shadow-inner border border-slate-200/50" role="menubar">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 scroll={false}
                 role="menuitem"
                 className="
-                  relative text-gray-800 text-base md:text-lg lg:text-xl font-bold
-                  transition-colors duration-200 hover:text-gray-400
-                  after:absolute after:left-0 after:-bottom-0.5 after:h-0.5
-                  after:w-0 after:bg-gray-400 after:transition-[width] after:duration-300
-                  hover:after:w-full
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 rounded-sm
+                  px-5 py-2 rounded-full text-sm lg:text-base font-semibold text-slate-600
+                  transition-all duration-300 ease-out hover:bg-white hover:text-slate-900 hover:shadow-sm hover:ring-1 hover:ring-slate-200
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400
                 "
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
-          {/* Hire Me + social modal */}
-          <div className="relative flex flex-col items-center">
-            <Button
-              ref={hireMeBtnRef}
-              onClick={() => setOpenModal((v) => !v)}
-              variant="colorful"
-              size="md"
-              aria-expanded={openModal}
-              aria-controls={modalId}
-              aria-haspopup="dialog"
-              className="text-xs lg:text-lg min-w-32 mx-auto uppercase tracking-wide select-none"
-            >
-              Hire me
-            </Button>
+          {/* Right Section: Hire Me + Hamburger */}
+          <div className="flex items-center gap-2 sm:gap-4">
+            {/* Hire Me + social modal */}
+            <div className="relative flex flex-col items-center">
+              <Button
+                ref={hireMeBtnRef}
+                onClick={() => setOpenModal((v) => !v)}
+                variant="colorful"
+                size="md"
+                aria-expanded={openModal}
+                aria-controls={modalId}
+                aria-haspopup="dialog"
+                className="text-[10px] sm:text-xs lg:text-sm px-3 sm:px-5 min-w-[80px] sm:min-w-[100px] rounded-full uppercase tracking-wider font-bold shadow-sm hover:shadow-md transition-shadow select-none"
+              >
+                Hire me
+              </Button>
 
-            {/*
-             * Social modal
-             * ─ display:none handled by GSAP (not Tailwind hidden class)
-             *   so GSAP can toggle it without specificity fights.
-             * ─ will-change:transform → GPU layer pre-allocated.
-             * ─ translateZ(0) ensures compositing even before will-change fires.
-             */}
-            <div
-              id={modalId}
-              ref={modalRef}
-              role="dialog"
-              aria-label="Connect with me"
-              aria-modal="false"
-              className="absolute top-full mt-4 z-50 w-64"
-              style={{
-                display: "none",
-                willChange: "transform, opacity",
-                transform: "translateZ(0)",
-              }}
-            >
-              <div className="bg-white/92 backdrop-blur-xl rounded-2xl p-5 shadow-2xl border border-slate-100/80 ring-1 ring-black/5">
-                <h2 className="text-center font-bold text-slate-800 mb-4 border-b border-slate-100 pb-2 text-sm tracking-wide uppercase">
-                  Connect With Me
-                </h2>
+              {/*
+               * Social modal
+               * ─ display:none handled by GSAP (not Tailwind hidden class)
+               *   so GSAP can toggle it without specificity fights.
+               * ─ will-change:transform → GPU layer pre-allocated.
+               * ─ translateZ(0) ensures compositing even before will-change fires.
+               */}
+              <div
+                id={modalId}
+                ref={modalRef}
+                role="dialog"
+                aria-label="Connect with me"
+                aria-modal="false"
+                className="absolute top-full mt-4 z-50 w-64"
+                style={{
+                  display: "none",
+                  willChange: "transform, opacity",
+                  transform: "translateZ(0)",
+                }}
+              >
+                <div className="bg-white/92 backdrop-blur-xl rounded-2xl p-5 shadow-2xl border border-slate-100/80 ring-1 ring-black/5">
+                  <h2 className="text-center font-bold text-slate-800 mb-4 border-b border-slate-100 pb-2 text-sm tracking-wide uppercase">
+                    Connect With Me
+                  </h2>
 
-                {/* Social icons grid */}
-                <div className="grid grid-cols-5 gap-3 justify-center mb-4">
-                  {SOCIAL_LINKS.map((social, i) => {
-                    const Icon = social.icon;
-                    return (
-                      <a
-                        key={social.label}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        ref={(el) => (socialIconsRef.current[i] = el)}
-                        aria-label={social.label}
-                        className="
-                          flex items-center justify-center w-10 h-10 rounded-xl
-                          bg-slate-50 hover:bg-slate-100
-                          transition-[transform,background-color] duration-150
-                          hover:scale-110 active:scale-95
-                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-slate-400
-                        "
-                        style={{ color: social.color }}
-                      >
-                        <Icon size={20} aria-hidden="true" />
-                      </a>
-                    );
-                  })}
+                  {/* Social icons grid */}
+                  <div className="grid grid-cols-5 gap-3 justify-center mb-4">
+                    {SOCIAL_LINKS.map((social, i) => {
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={social.label}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          ref={(el) => (socialIconsRef.current[i] = el)}
+                          aria-label={social.label}
+                          className="
+                            flex items-center justify-center w-10 h-10 rounded-xl
+                            bg-slate-50 hover:bg-slate-100
+                            transition-[transform,background-color] duration-150
+                            hover:scale-110 active:scale-95
+                            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-slate-400
+                          "
+                          style={{ color: social.color }}
+                        >
+                          <Icon size={20} aria-hidden="true" />
+                        </a>
+                      );
+                    })}
+                  </div>
+
+                  <button
+                    onClick={() => setOpenModal(false)}
+                    className="
+                      w-full py-2 bg-slate-100 text-slate-600 rounded-lg
+                      hover:bg-slate-200 active:bg-slate-300
+                      transition-colors duration-150
+                      text-xs font-bold uppercase tracking-widest
+                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400
+                    "
+                  >
+                    Close
+                  </button>
                 </div>
-
-                <button
-                  onClick={() => setOpenModal(false)}
-                  className="
-                    w-full py-2 bg-slate-100 text-slate-600 rounded-lg
-                    hover:bg-slate-200 active:bg-slate-300
-                    transition-colors duration-150
-                    text-xs font-bold uppercase tracking-widest
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400
-                  "
-                >
-                  Close
-                </button>
               </div>
             </div>
-          </div>
 
-          {/* Hamburger — mobile only */}
-          <button
-            onClick={handleMenuToggle}
-            aria-expanded={isOpen}
-            aria-controls={sidebarId}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="
-              md:hidden relative flex items-center justify-center
-              w-10 h-10 rounded-full
-              hover:bg-black/5 active:bg-black/10
-              transition-colors duration-150
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400
-            "
-            style={{ zIndex: 70 }}
-          >
-            <HamburgerIcon isOpen={isOpen} size={0} />
-          </button>
+            {/* Hamburger — mobile only */}
+            <button
+              onClick={handleMenuToggle}
+              aria-expanded={isOpen}
+              aria-controls={sidebarId}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              className="
+                md:hidden relative flex items-center justify-center
+                w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-sm border border-slate-200
+                hover:bg-slate-50 active:scale-95
+                transition-all duration-200
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400
+              "
+              style={{ zIndex: 70 }}
+            >
+              <HamburgerIcon isOpen={isOpen} size={0} />
+            </button>
+          </div>
         </div>
       </nav>
 

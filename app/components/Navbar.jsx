@@ -392,7 +392,7 @@ const Navbar = () => {
                 role="dialog"
                 aria-label="Connect with me"
                 aria-modal="false"
-                className="absolute top-full mt-4 z-50 w-64"
+                className="absolute top-full right-0 mt-4 z-50 w-[280px] sm:w-72 origin-top-right"
                 style={{
                   display: "none",
                   willChange: "transform, opacity",
@@ -405,7 +405,7 @@ const Navbar = () => {
                   </h2>
 
                   {/* Social icons grid */}
-                  <div className="grid grid-cols-5 gap-3 justify-center mb-4">
+                  <div className="grid grid-cols-5 gap-2 sm:gap-3 justify-center mb-4">
                     {SOCIAL_LINKS.map((social, i) => {
                       const Icon = social.icon;
                       return (
@@ -417,7 +417,7 @@ const Navbar = () => {
                           ref={(el) => (socialIconsRef.current[i] = el)}
                           aria-label={social.label}
                           className="
-                            flex items-center justify-center w-10 h-10 rounded-xl
+                            flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl
                             bg-slate-50 hover:bg-slate-100
                             transition-[transform,background-color] duration-150
                             hover:scale-110 active:scale-95

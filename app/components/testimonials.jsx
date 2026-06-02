@@ -59,7 +59,7 @@ const Testimonial = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative min-h-137.5 md:min-h-112.5 lg:min-h-100">
+        <div className="relative min-h-[500px] sm:min-h-[400px] md:min-h-[350px] lg:min-h-[380px]">
           {testimonials.map((item, index) => (
             <div
               key={item.id}
@@ -73,7 +73,7 @@ const Testimonial = () => {
                 {/* Text Content */}
                 <div className="text-center lg:text-left order-2 lg:order-1">
                   <h2
-                    className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight ${urbanist.className}`}
+                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-snug sm:leading-tight tracking-tight ${urbanist.className}`}
                   >
                     “{item.review}”
                   </h2>
@@ -106,8 +106,8 @@ const Testimonial = () => {
                 </div>
 
                 {/* Image Shape */}
-                <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-                  <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-100 lg:h-100">
+                <div className="flex justify-center lg:justify-end order-1 lg:order-2 mb-8 lg:mb-0">
+                  <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
                     <div className="absolute inset-0 bg-gray-100 [clip-path:polygon(35%_0%,65%_0%,65%_35%,100%_35%,100%_65%,65%_65%,65%_100%,35%_100%,35%_65%,0%_65%,0%_35%,35%_35%)]">
                       <img
                         src={item.image}

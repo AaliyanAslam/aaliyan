@@ -45,28 +45,26 @@ const Stats = () => {
           {stats.map((item, index) => (
             <div
               key={item.id}
-              className={`flex flex-col items-center text-center py-10 md:py-14 px-6 
-                /* Responsive Borders */
-                border-gray-300
-                ${index !== stats.length - 1 ? "border-b sm:border-b-0" : ""} 
-                ${index % 2 === 0 ? "sm:border-r lg:border-r" : "lg:border-r"}
-                ${index === 1 ? "lg:border-r" : ""}
-                ${index === 2 ? "sm:border-r lg:border-r" : ""}
-                ${index === 3 ? "sm:border-l-0 lg:border-r-0" : ""}
+              className={`flex flex-col items-center text-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 border-gray-300
+                ${index !== stats.length - 1 ? "border-b lg:border-b-0" : ""} 
+                ${index % 2 === 0 ? "sm:border-r" : ""}
+                ${index !== 3 ? "lg:border-r" : ""}
               `}
             >
-              {/* Icon */}
-              <div className="text-black mb-6">{item.icon}</div>
+              {/* Icon Wrapper (Responsive sizing using child selector) */}
+              <div className="text-black mb-4 md:mb-6 *:w-8 *:h-8 sm:*:w-10 sm:*:h-10 md:*:w-[42px] md:*:h-[42px] transition-transform hover:scale-110">
+                {item.icon}
+              </div>
 
               {/* Number */}
               <h2
-                className={`text-4xl md:text-5xl lg:text-6xl font-black tracking-tight ${urbanist.className}`}
+                className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight ${urbanist.className}`}
               >
                 {item.number}
               </h2>
 
               {/* Text */}
-              <p className="mt-5 text-sm md:text-base text-black font-medium">
+              <p className="mt-3 sm:mt-5 text-xs sm:text-sm md:text-base text-gray-600 font-semibold tracking-wide uppercase">
                 {item.title}
               </p>
             </div>

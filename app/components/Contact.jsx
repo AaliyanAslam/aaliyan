@@ -67,12 +67,12 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto py-10 md:py-20">
         
         {/* Header Section */}
-        <div className="text-center mb-12 md:mb-20">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
+        <div className="text-center mb-10 sm:mb-16 md:mb-20">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight sm:leading-tight">
             <span className="text-gray-400">Say Hi!</span> and tell me about
-            <br />
-            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mt-2">
-              <div className="relative w-16 h-8 md:w-32 md:h-12">
+            <br className="hidden sm:block" />
+            <span className="inline-flex items-center justify-center gap-2 md:gap-4 mt-2 sm:mt-4 align-middle">
+              <div className="relative w-12 h-6 sm:w-16 sm:h-8 md:w-32 md:h-12 -mt-1 md:-mt-2">
                 <Image
                   src="/images/right.webp"
                   alt="Right arrow icon"
@@ -81,7 +81,7 @@ const Contact = () => {
                 />
               </div>
               <span>your idea</span>
-            </div>
+            </span>
           </h1>
           <p className="mt-6 md:mt-8 text-base md:text-lg text-gray-600">
             Have a nice project? reach out and let's chat.
@@ -102,34 +102,34 @@ const Contact = () => {
           )}
 
           {/* Input Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 mb-10 md:mb-12">
             <div className="border-b border-gray-300 pb-2 focus-within:border-black transition-colors">
-              <label className="block text-sm md:text-base font-bold mb-3 md:mb-4">Name:*</label>
+              <label className="block text-sm sm:text-base font-bold mb-2 sm:mb-4">Name:*</label>
               <input
                 type="text"
                 required
                 placeholder="Hello..."
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full outline-none text-gray-700 placeholder-gray-300 bg-transparent py-1"
+                className="w-full outline-none text-gray-700 placeholder-gray-300 bg-transparent py-2 md:py-3 text-sm sm:text-base"
               />
             </div>
 
             <div className="border-b border-gray-300 pb-2 focus-within:border-black transition-colors">
-              <label className="block text-sm md:text-base font-bold mb-3 md:mb-4">Email:*</label>
+              <label className="block text-sm sm:text-base font-bold mb-2 sm:mb-4">Email:*</label>
               <input
                 type="email"
                 required
                 placeholder="Where can I reply?"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full outline-none text-gray-700 placeholder-gray-300 bg-transparent py-1"
+                className="w-full outline-none text-gray-700 placeholder-gray-300 bg-transparent py-2 md:py-3 text-sm sm:text-base"
               />
             </div>
           </div>
 
           <div className="border-b border-gray-300 pb-2 mb-10 md:mb-12 focus-within:border-black transition-colors">
-            <label className="block text-sm md:text-base font-bold mb-3 md:mb-4">
+            <label className="block text-sm sm:text-base font-bold mb-2 sm:mb-4">
               Company name
             </label>
             <input
@@ -137,25 +137,25 @@ const Contact = () => {
               placeholder="Your company or website?"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className="w-full outline-none text-gray-700 placeholder-gray-300 bg-transparent py-1"
+              className="w-full outline-none text-gray-700 placeholder-gray-300 bg-transparent py-2 md:py-3 text-sm sm:text-base"
             />
           </div>
 
           {/* Interests Selection */}
           <div className="mb-10 md:mb-12">
-            <label className="block text-sm md:text-base font-bold mb-6">
+            <label className="block text-sm sm:text-base font-bold mb-4 sm:mb-6">
               What's on your mind?*
             </label>
-            <div className="flex flex-wrap gap-2 md:gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               {interests.map((item) => (
                 <button
                   key={item}
                   type="button"
                   onClick={() => setSelectedInterest(item)}
-                  className={`px-4 md:px-6 py-2 rounded-full border transition-all text-sm md:text-base ${
+                  className={`px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full border transition-all text-xs sm:text-sm md:text-base ${
                     selectedInterest === item
-                      ? "bg-black text-white border-black"
-                      : "bg-white text-gray-800 border-gray-200 hover:border-gray-400"
+                      ? "bg-black text-white border-black shadow-sm"
+                      : "bg-white text-gray-800 border-gray-200 hover:border-gray-400 hover:bg-gray-50"
                   }`}
                 >
                   {item}
@@ -166,14 +166,14 @@ const Contact = () => {
 
           {/* Message Area */}
           <div className="border-b border-gray-300 pb-2 mb-8 md:mb-12 focus-within:border-black transition-colors">
-            <label className="block text-sm md:text-base font-bold mb-3 md:mb-4">Message*</label>
+            <label className="block text-sm sm:text-base font-bold mb-2 sm:mb-4">Message*</label>
             <textarea
               required
               placeholder="Tell me about your project..."
               value={message}
               onChange={handleMessageChange}
               rows={4}
-              className="w-full outline-none text-gray-700 placeholder-gray-300 resize-none bg-transparent"
+              className="w-full outline-none text-gray-700 placeholder-gray-300 resize-none bg-transparent py-2 sm:py-3 text-sm sm:text-base"
             />
             <div className="flex justify-end mt-1">
               <span

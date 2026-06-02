@@ -50,8 +50,8 @@ const Hero = () => {
               className={`flex items-center gap-2 justify-center md:justify-start mb-8 ${novaOval.className}`}
             >
               <p className="text-[0.8rem] lg:text-[0.9rem] text-gray-900 flex">
-                <span className="hidden mr-6 lg:block">─────────</span> FullStack
-                Developer
+                <span className="hidden mr-6 lg:block">─────────</span>{" "}
+                FullStack Developer
               </p>
               <span className="text-xl">
                 <SiGooglegemini
